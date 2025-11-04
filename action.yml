@@ -2,9 +2,69 @@
 name: '"Configure AWS Credentials" Action for GitHub Actions'
 description: Configures AWS credentials for use in subsequent steps in a GitHub Action workflow
 runs:
-  using: node20
-  main: dist/index.js
-  post: dist/cleanup/index.js
+  using: docker
+  image: Dockerfile
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - --aws-region
+    - ${{ inputs.aws-region }}
+    - --role-to-assume
+    - ${{ inputs.role-to-assume }}
+    - --aws-access-key-id
+    - ${{ inputs.aws-access-key-id }}
+    - --aws-secret-access-key
+    - ${{ inputs.aws-secret-access-key }}
+    - --aws-session-token
+    - ${{ inputs.aws-session-token }}
+    - --web-identity-token-file
+    - ${{ inputs.web-identity-token-file }}
+    - --role-chaining
+    - ${{ inputs.role-chaining }}
+    - --audience
+    - ${{ inputs.audience }}
+    - --http-proxy
+    - ${{ inputs.http-proxy }}
+    - --no-proxy
+    - ${{ inputs.no-proxy }}
+    - --mask-aws-account-id
+    - ${{ inputs.mask-aws-account-id }}
+    - --role-duration-seconds
+    - ${{ inputs.role-duration-seconds }}
+    - --role-external-id
+    - ${{ inputs.role-external-id }}
+    - --role-session-name
+    - ${{ inputs.role-session-name }}
+    - --role-skip-session-tagging
+    - ${{ inputs.role-skip-session-tagging }}
+    - --inline-session-policy
+    - ${{ inputs.inline-session-policy }}
+    - --managed-session-policies
+    - ${{ inputs.managed-session-policies }}
+    - --output-credentials
+    - ${{ inputs.output-credentials }}
+    - --output-env-credentials
+    - ${{ inputs.output-env-credentials }}
+    - --unset-current-credentials
+    - ${{ inputs.unset-current-credentials }}
+    - --disable-retry
+    - ${{ inputs.disable-retry }}
+    - --retry-max-attempts
+    - ${{ inputs.retry-max-attempts }}
+    - --special-characters-workaround
+    - ${{ inputs.special-characters-workaround }}
+    - --use-existing-credentials
+    - ${{ inputs.use-existing-credentials }}
+    - --allowed-account-ids
+    - ${{ inputs.allowed-account-ids }}
+    - --force-skip-oidc
+    - ${{ inputs.force-skip-oidc }}
+    - --action-timeout-s
+    - ${{ inputs.action-timeout-s }}
+  #using: node20
+  #main: dist/index.js
+  #post: dist/cleanup/index.js
 branding:
   color: orange
   icon: cloud
