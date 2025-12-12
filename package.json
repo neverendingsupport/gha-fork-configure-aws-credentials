@@ -1,7 +1,7 @@
 {
   "name": "configure-aws-credentials",
   "description": "A GitHub Action to configure AWS credentials",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "scripts": {
     "build": "tsc",
     "lint": "biome check --error-on-warnings ./src",
@@ -16,25 +16,25 @@
     "organization": true
   },
   "devDependencies": {
-    "@aws-sdk/credential-provider-env": "^3.922.0",
-    "@biomejs/biome": "2.3.3",
-    "@smithy/property-provider": "^4.0.3",
-    "@types/node": "^24.10.0",
+    "@aws-sdk/credential-provider-env": "^3.936.0",
+    "@biomejs/biome": "2.3.8",
+    "@smithy/property-provider": "^4.2.5",
+    "@types/node": "^24.10.2",
     "@vercel/ncc": "^0.38.4",
     "@vitest/coverage-v8": "^3.2.4",
     "aws-sdk-client-mock": "^4.1.0",
     "cpy-cli": "^6.0.0",
     "del-cli": "^7.0.0",
     "json-schema": "^0.4.0",
-    "memfs": "^4.50.0",
+    "memfs": "^4.51.1",
     "standard-version": "^9.5.0",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   },
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@aws-sdk/client-sts": "^3.922.0",
-    "@smithy/node-http-handler": "^4.4.3",
+    "@aws-sdk/client-sts": "^3.947.0",
+    "@smithy/node-http-handler": "^4.4.5",
     "proxy-agent": "^6.5.0"
   },
   "keywords": [
