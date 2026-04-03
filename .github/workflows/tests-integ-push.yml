@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'dist/**'  
+      - 'dist/**'
   workflow_dispatch:
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # ratchet:actions/checkout@v5
         with:
           fetch-depth: 0
           persist-credentials: false

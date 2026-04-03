@@ -2,24 +2,24 @@ name: Codex Sync runs.args with inputs
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch: {}
 
 permissions:
-  contents: write         # needed to push branch/PR
-  pull-requests: write    # needed to open PR
+  contents: write # needed to push branch/PR
+  pull-requests: write # needed to open PR
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (full history for clean diffs)
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # ratchet:actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # ratchet:actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -36,7 +36,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.sync.outputs.HAS_CHANGES == '1'
-        uses: peter-evans/create-pull-request@v7.0.8
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # ratchet:peter-evans/create-pull-request@v7.0.8
         with:
           commit-message: "chore: sync runs.args with inputs (automated)"
           title: "chore: Sync runs.args with inputs"

@@ -1,11 +1,10 @@
-on:
-  [pull_request]
-
+on: [pull_request]
 name: Run unit tests
+
 permissions:
   contents: read
-
 jobs:
+
   unit-test:
     strategy:
       fail-fast: false
@@ -16,9 +15,9 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: "Checkout repository"
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # ratchet:actions/checkout@v5
       - name: "Setup node"
-        uses: actions/setup-node@v4.4.0
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # ratchet:actions/setup-node@v4.4.0
         with:
           node-version: 20
       - name: "Install dependencies"
@@ -31,12 +30,13 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: "Checkout repostiory"
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # ratchet:actions/checkout@v5
       - name: "Setup node"
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # ratchet:actions/setup-node@v4
         with:
           node-version: 20
       - name: "Install dependencies"
-        uses: bahmutov/npm-install@v1
+        uses: bahmutov/npm-install@20216767ca67f0f7b4d095dc5859c5700a6581cb # ratchet:bahmutov/npm-install@v1
       - name: "Lint code"
         run: npm run lint --if-present
+
